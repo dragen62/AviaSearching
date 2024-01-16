@@ -2,7 +2,12 @@ import React from "react";
 
 class Form extends React.Component {
   render () {
-    return <h1>Hello world</h1>
+    return (
+      <form onSubmit={this.props.getTickets}>
+        <input type="text" name="city" placeholder="Откуда"/>
+        <button>Получить</button>
+      </form>
+    );
   }
 }
 
