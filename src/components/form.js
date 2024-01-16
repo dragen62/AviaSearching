@@ -1,8 +1,15 @@
 import React from "react";
-import TicketsList from "./ticketList";
 import styles from "../styles/styles.less";
 
 class Form extends React.Component {
+  constructor(props)  {
+    super(props);
+  }
+
+  handleChange(e) {
+    this.props.changeValue(e.target.data_form.value);    
+  }
+  
   render () {
     return (
       <form onSubmit={this.props.getTickets} 

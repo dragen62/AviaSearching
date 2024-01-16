@@ -6,6 +6,19 @@ import TicketsList from "./components/ticketList";
 const API_KEY = 'b5b4489dfeae21f1c97508b7df14534e';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      ticketsList: [ ]
+    }
+  }
+
+  ChangeValue(ticketsList) {
+    this.setState({
+      ticketsList: ticketsList['data']
+    })
+  }
+
   gettingTickets = async (event) => {
     event.preventDefault();
     const origin_city = event.target.elements.origin_city.value;
@@ -21,7 +34,7 @@ class App extends React.Component {
     return(
       <div>
       <Info/>
-      <Form getTickets={this.gettingTickets}/>
+      <Form ChangeValue={this.ChangeValue.bind(this)} getTickets={this.gettingTickets}/>
     </div>
     );
   }
