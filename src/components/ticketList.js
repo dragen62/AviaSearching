@@ -1,8 +1,17 @@
 import React from "react";
+import Ticket from "./ticket";
 
 class TicketsList extends React.Component {
+
   render () {
-    return <h1>Hello world</h1>
+    console.log("hello world, i'm alive");
+    return (
+      <div className="list__container">
+        {this.props.ticketsList.map((ticket) =>
+        <Ticket key={ticket.link} {...ticket} />
+        )}
+      </div>
+    )
   }
 }
 
